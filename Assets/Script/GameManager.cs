@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     public void ClearGame()
     {
 
-        isGameover = true;
+       
 
         float bestTime = PlayerPrefs.GetFloat("BestTime", float.MaxValue);
 
@@ -57,14 +57,18 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        
-
         if (!isGameover)
         {
             survivetime += Time.deltaTime;
             timetext.text = "Time: " + (int)survivetime;//시간 갱신
             toy.text = "인형 갯수: 12/ " + inventory.ToyCount;
             Life.text = "생명력: " +(maxLife - controller.hitCount);
+        }
+
+        if (inventory.ToyCount >= 12 && inventory.KeyCount >= 6)
+        {
+            isGameover = true;
+            ClearGame();
         }
         
     }
