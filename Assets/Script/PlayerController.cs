@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public GameObject effectPrefab;
 
     public VariableJoystick joy;
+    public DynamicJoystick dynamicJoystick;
 
     void Start()
     {
@@ -25,7 +26,7 @@ public class PlayerController : MonoBehaviour
 }
 
 
-    void Update()
+    void FixedUpdate()
     {
         float h = joy.Horizontal;
         float v = joy.Vertical;
@@ -33,20 +34,16 @@ public class PlayerController : MonoBehaviour
         /*float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");*/
 
-        Vector3 inputDir = new Vector3(h, 0, v).normalized; //대각선 이동 속도 제어
+        //입력에 따른 이동 방향 벡터 계산
+        Vector3 move = (transform.forward * v) + (transform.right * h);
+        Vector3 velocity = move.normalized * speed;
 
-        Vector3 moveDir = transform.TransformDirection(inputDir); //월드 좌표계를 캐릭터 좌표계로 변형
+        rb.MovePosition(rb.position + velocity * Time.deltaTime);
 
-        if (moveDir != Vector3.zero)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 0.01f);
+    }
 
-       
-        }
-
-        Vector3 newPosition = rb.position + moveDir * speed * Time.deltaTime;
-        rb.MovePosition(newPosition);
+    public void rotate()
+    {
 
     }
 
