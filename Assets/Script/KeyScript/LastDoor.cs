@@ -38,20 +38,14 @@ public class LastDoor : MonoBehaviour
 
     void Update()
     {
-        if (isopen)
-        {
-            float distance = Vector3.Distance(transform.position, player.position);
-            if (distance > doordistance + 4.5f)
-            {
-                animator.SetTrigger("Close");
-                isopen = false;
-            }
-        }
+ 
+        
 
     }
 
     public void openclick()
     {
+        Debug.Log("openclick »£√‚µ !");
 
         float distance = Vector3.Distance(transform.position, player.position);
         if (!isopen && distance <= doordistance)

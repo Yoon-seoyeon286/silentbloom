@@ -61,11 +61,6 @@ public class GameManager : MonoBehaviour
             toy.text = "인형 갯수: 12/ " + inventory.ToyCount;
             Life.text = "생명력: " +(maxLife - controller.hitCount);
         }
-
-        if (inventory.ToyCount >= 12 && inventory.KeyCount >= 6)
-        {
-            ClearGame();
-        }
         
     }
 }
