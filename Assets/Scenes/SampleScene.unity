@@ -2735,13 +2735,17 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+
+  m_LocalRotation: {x: 0.22373158, y: -0, z: -0, w: 0.97465086}
+
   m_LocalPosition: {x: 10.03, y: 12.33, z: 19.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+  m_LocalEulerAnglesHint: {x: 25.857, y: 0, z: 0}
+
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2798,10 +2802,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065f23ca95f02e541b7ced3984dc645c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1916686438}
-  offset: {x: 0, y: 3.2, z: -6}
-  followSpeed: 5
-  rotatedSpeed: 2.5
+
+  target: {fileID: 1916686425}
+  rotateSpeed: 2
+  offset: {x: 0, y: 5, z: -5}
+
 --- !u!1001 &334095639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18149,7 +18154,6 @@ MonoBehaviour:
   maxhit: 3
   isDead: 0
   overImage: {fileID: 583465812}
-  cam: {fileID: 330585546}
   effectPrefab: {fileID: 6855314210357232287, guid: 7c2a9b83b809a0848915fabd9596b68b, type: 3}
   joy: {fileID: 1819627996}
   fixJoy: {fileID: 694816158}
