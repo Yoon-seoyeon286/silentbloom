@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public bool isDead = false;
     Animator animator;
     public GameObject overImage;
+    public Transform cam;
     float rotateSpeed = 4f;
 
 
@@ -53,12 +54,26 @@ public class PlayerController : MonoBehaviour
 
         if (h == 0 && v == 0) return;
 
-        Vector3 direction = new Vector3(h, 0f, v);
-        Quaternion rotation = Quaternion.LookRotation(direction);
+        //조이스틱 입력을 카메라 기준으로 회전
+        Vector3 inputDir = new Vector3(h, 0f, v);
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotateSpeed * Time.deltaTime);
+        Vector3 camForward = cam.forward;
+        Vector3 camRight = cam.right;
 
 
+        // y축 영향 제거
+        camForward.y = 0f;
+        camRight.y = 0f;
+        camForward.Normalize();
+        camRight.Normalize();
+
+        Vector3 moveDir = camForward * inputDir.z + camRight * inputDir.x;
+
+        //회전 방향 계산
+        Quaternion targetRotation = Quaternion.LookRotation(moveDir);
+
+        //회전 적용
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
     }
 
     public void Damage()
