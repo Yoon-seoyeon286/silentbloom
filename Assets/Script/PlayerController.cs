@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
         Debug.Log("You Dead");
-        Invoke(nameof(ShowGameOverImage), 3f);
+        Invoke(nameof(ShowGameOverImage), 1f);
     }
 
     void ShowGameOverImage()

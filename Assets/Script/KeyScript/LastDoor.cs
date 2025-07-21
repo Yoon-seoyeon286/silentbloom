@@ -56,7 +56,7 @@ public class LastDoor : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.position);
         if (!isopen && distance <= doordistance)
         {
-            if (inventory != null && inventory.WhatKey(RequirKey) && inventory.ToyCount >= 12)
+            if (inventory != null && inventory.KeyCount>=6 && inventory.ToyCount >= 12)
             {
                 animator.SetTrigger("Open");
                 isopen = true;
