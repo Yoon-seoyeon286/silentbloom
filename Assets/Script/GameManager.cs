@@ -39,9 +39,6 @@ public class GameManager : MonoBehaviour
 
     public void ClearGame()
     {
-
-       
-
         float bestTime = PlayerPrefs.GetFloat("BestTime", float.MaxValue);
 
         if (survivetime < bestTime)
@@ -67,7 +64,6 @@ public class GameManager : MonoBehaviour
 
         if (inventory.ToyCount >= 12 && inventory.KeyCount >= 6)
         {
-            isGameover = true;
             ClearGame();
         }
         
