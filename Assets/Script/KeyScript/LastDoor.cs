@@ -45,7 +45,6 @@ public class LastDoor : MonoBehaviour
 
     public void openclick()
     {
-        Debug.Log("openclick »£√‚µ !");
 
         float distance = Vector3.Distance(transform.position, player.position);
         if (!isopen && distance <= doordistance)

@@ -15,6 +15,7 @@ public class PlayerInventory : MonoBehaviour
         {
             keys.Add(KeyName);
             Debug.Log("{KeyName}È¹µæ");
+            KeyCount++;
         }
     }
 
