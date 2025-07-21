@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public Text timetext;
     float survivetime;
     bool isGameover;
-    int maxLife = 3;
+    int maxLife = 5;
 
     public Text toy;
     public Text Life;
