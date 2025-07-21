@@ -15,10 +15,7 @@ public class PlayerInventory : MonoBehaviour
         {
             keys.Add(KeyName);
             Debug.Log("{KeyName}획득");
-            KeyCount++;
         }
-
-   
     }
 
     public bool WhatKey(string KeyName) //문을 열 때 해당 키가 있는지 확인
