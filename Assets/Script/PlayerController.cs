@@ -10,12 +10,13 @@ public class PlayerController : MonoBehaviour
     public bool isDead = false;
     Animator animator;
     public GameObject overImage;
+    float rotateSpeed = 4f;
 
 
     public GameObject effectPrefab;
 
     public VariableJoystick joy;
-    public DynamicJoystick dynamicJoystick;
+    public FixedJoystick fixJoy;
 
     void Start()
     {
@@ -40,10 +41,23 @@ public class PlayerController : MonoBehaviour
 
         rb.MovePosition(rb.position + velocity * Time.deltaTime);
 
+        rotate();
+
     }
 
-    public void rotate()
+   void rotate()
     {
+        float h = fixJoy.Horizontal;
+        float v = fixJoy.Vertical;
+
+
+        if (h == 0 && v == 0) return;
+
+        Vector3 direction = new Vector3(h, 0f, v);
+        Quaternion rotation = Quaternion.LookRotation(direction);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotateSpeed * Time.deltaTime);
+
 
     }
 
