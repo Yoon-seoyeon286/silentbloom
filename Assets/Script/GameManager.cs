@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
 
     public void ClearGame()
     {
+<<<<<<< HEAD
+=======
+
+        isGameover = true;
+
+>>>>>>> parent of 1ec7b2a (FIxed : 게임 엔딩 조건 추가)
         float bestTime = PlayerPrefs.GetFloat("BestTime", float.MaxValue);
 
         if (survivetime < bestTime)
@@ -54,6 +60,8 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
+        
+
         if (!isGameover)
         {
             survivetime += Time.deltaTime;
